@@ -21,6 +21,16 @@ public class Film {
         this.genre=genre;
     }
 
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
+                ", genre='" + genre + '\'' +
+                ", nbExemplaires=" + nbExemplaires +
+                '}';
+    }
+
     public String getTitre() {
         return titre;
     }
