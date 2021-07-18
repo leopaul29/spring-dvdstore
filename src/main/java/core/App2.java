@@ -14,10 +14,10 @@ public class App2 {
 
     private static final Logger log = LoggerFactory.getLogger(DVDStoreApp.class);
 
+
     public static void main(String[] args) {
         SpringApplication.run(DVDStoreApp.class);
     }
-
     @Bean
     public CommandLineRunner demo(FilmRepository repository) {
         return (args) -> {
