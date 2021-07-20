@@ -11,16 +11,16 @@ import java.util.List;
 
 @Service
 public class FilmService {
-    @Autowired
+
     FilmRepository dao;
 
-//    public FilmDaoInterface getDao() {
-//        return dao;
-//    }
-//
-//    public void setDao(FilmDaoInterface dao) {
-//        this.dao = dao;
-//    }
+    public FilmRepository getDao() {
+        return dao;
+    }
+
+    public void setDao(FilmRepository dao) {
+        this.dao = dao;
+    }
 
     public void registerFilm(Film film){
         dao.save(film);
