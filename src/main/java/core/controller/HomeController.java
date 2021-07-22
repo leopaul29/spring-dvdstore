@@ -28,6 +28,7 @@ public class HomeController {
     public String home(Model model) {
         List<Film> films = service.listFilm();
         model.addAttribute("films", films);
+        System.out.println("film:"+films);
         return "home";
     }
 
