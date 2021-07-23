@@ -6,6 +6,7 @@ import core.service.FilmServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -43,6 +44,13 @@ public class HomeController {
     public String saveFilm(Model model) {
         Film film = (Film) model.getAttribute("film");
         service.registerFilm(film);
+        return "home";
+    }
+
+    @DeleteMapping("/removeFilm")
+    public String removeFilm(Model model) {
+        Film film = (Film) model.getAttribute("film");
+        service.deleteFilm(film);
         return "home";
     }
 }

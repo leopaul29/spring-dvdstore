@@ -29,4 +29,8 @@ public class FilmService {
     public List<Film> listFilm(){
         return (List<Film>) dao.findAll();
     }
+
+    public void deleteFilm(Film film) {
+        dao.delete(film);
+    }
 }
