@@ -14,7 +14,6 @@ public class App2 {
 
     private static final Logger log = LoggerFactory.getLogger(DVDStoreApp.class);
 
-
     public static void main(String[] args) {
         SpringApplication.run(DVDStoreApp.class);
     }
@@ -36,6 +35,7 @@ public class App2 {
             }
             log.info("");
 
+/*
             // fetch an individual customer by ID
             Film film = repository.findById(1L);
             log.info("Customer found with findById(1L):");
@@ -52,7 +52,7 @@ public class App2 {
             // for (Customer bauer : repository.findByLastName("Bauer")) {
             //  log.info(bauer.toString());
             // }
-            log.info("");
+            log.info("");*/
         };
     }
 }

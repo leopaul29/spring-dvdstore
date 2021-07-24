@@ -1,8 +1,6 @@
 package core.service;
 
 import core.entity.Film;
-import core.repository.FileFilmDao;
-import core.repository.FilmDaoInterface;
 import core.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,25 +10,26 @@ import java.util.List;
 @Service
 public class FilmService {
 
-    FilmRepository dao;
+    @Autowired
+    FilmRepository repository;
 
     public FilmRepository getDao() {
-        return dao;
+        return repository;
     }
 
-    public void setDao(FilmRepository dao) {
-        this.dao = dao;
+    public void setDao(FilmRepository repository) {
+        this.repository = repository;
     }
 
     public void registerFilm(Film film){
-        dao.save(film);
+        repository.save(film);
     }
 
     public List<Film> listFilm(){
-        return (List<Film>) dao.findAll();
+        return (List<Film>) repository.findAll();
     }
 
     public void deleteFilm(Film film) {
-        dao.delete(film);
+        repository.delete(film);
     }
 }

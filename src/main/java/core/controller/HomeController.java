@@ -15,21 +15,13 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    @Autowired
     FilmService service;
-
-    public void setService(FilmService service){
-        this.service = service;
-    }
-
-    public FilmService getService() {
-        return this.service;
-    }
 
     @GetMapping("/home")
     public String home(Model model) {
         List<Film> films = service.listFilm();
         model.addAttribute("films", films);
-        System.out.println("film:"+films);
         return "home";
     }
 

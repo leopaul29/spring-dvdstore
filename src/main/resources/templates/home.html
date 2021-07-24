@@ -8,9 +8,17 @@
 <tr th:if="${films.empty}">
     <td colspan="2"> No Films Available </td>
 </tr>
-<tr th:each="film : ${films}">
-    <td><span th:text="${film.titre}"> Titre </span></td>
-    <td><span th:text="${film.genre}"> Genre </span></td>
-</tr>
+<table>
+    <thead>
+        <td>Titre</td>
+        <td>Genre</td>
+    </thead>
+    <tbody>
+        <tr th:each="film : ${films}">
+            <td><span th:text="${film.titre}"> Titre </span></td>
+            <td><span th:text="${film.genre}"> Genre </span></td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
