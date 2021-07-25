@@ -7,5 +7,10 @@
 </head>
 <body>
 <h1>Add Film</h1>
+<form th:action="@{/addFilm}" method="post" th:object="${film}">
+Titre:<input type="text" name="Titre" id="Titre" th:field="*{titre}">
+Genre:<input type="text" name="genre" id="genre" th:field="*{genre}">
+<input type="submit" value="Ajouter un film">
+</form>
 </body>
 </html>

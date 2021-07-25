@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -33,10 +34,11 @@ public class HomeController {
     }
 
     @PostMapping("/addFilm")
-    public String saveFilm(Model model) {
-        Film film = (Film) model.getAttribute("film");
+    public String postAddFilm(@ModelAttribute Film film) {
+        //Film film = (Film) model.getAttribute("film");
+        System.out.println("postAddFilm: "+film);
         service.registerFilm(film);
-        return "home";
+        return "redirect:/home/";
     }
 
     @DeleteMapping("/removeFilm")
