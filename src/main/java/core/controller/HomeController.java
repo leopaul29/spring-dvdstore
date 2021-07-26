@@ -42,9 +42,9 @@ public class HomeController {
     }
 
     @DeleteMapping("/removeFilm")
-    public String removeFilm(Model model) {
-        Film film = (Film) model.getAttribute("film");
-        service.deleteFilm(film);
+    public String removeFilm(Long id) {
+        Film filmById = service.getFilmById(id);
+        service.deleteFilm(filmById);
         return "home";
     }
 }

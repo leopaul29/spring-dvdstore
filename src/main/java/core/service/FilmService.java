@@ -13,16 +13,12 @@ public class FilmService {
     @Autowired
     FilmRepository repository;
 
-    public FilmRepository getDao() {
-        return repository;
-    }
-
-    public void setDao(FilmRepository repository) {
-        this.repository = repository;
-    }
-
     public void registerFilm(Film film){
         repository.save(film);
+    }
+
+    public Film getFilmById(Long id) {
+        return repository.findById(id).get();
     }
 
     public List<Film> listFilm(){
