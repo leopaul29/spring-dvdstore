@@ -14,13 +14,16 @@
 </tr>
 <table>
     <thead>
+        <td>Id</td>
         <td>Titre</td>
         <td>Genre</td>
     </thead>
     <tbody>
         <tr th:each="film : ${films}">
+            <td><span th:text="${film.id}"> Id </span></td>
             <td><span th:text="${film.titre}"> Titre </span></td>
             <td><span th:text="${film.genre}"> Genre </span></td>
+            <td><span><a th:href="@{/deleteFilm(filmId=${film.id})}"> X </a></span></td>
         </tr>
     </tbody>
 </table>

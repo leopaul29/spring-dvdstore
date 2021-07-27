@@ -41,9 +41,9 @@ public class HomeController {
         return "redirect:/home/";
     }
 
-    @DeleteMapping("/removeFilm")
-    public String removeFilm(Long id) {
-        Film filmById = service.getFilmById(id);
+    @GetMapping("/deleteFilm")
+    public String removeFilm(@ModelAttribute Long filmId) {
+        Film filmById = service.getFilmById(filmId);
         service.deleteFilm(filmById);
         return "home";
     }
