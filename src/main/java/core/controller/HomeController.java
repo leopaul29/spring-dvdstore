@@ -6,10 +6,7 @@ import core.service.FilmServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,9 +39,9 @@ public class HomeController {
     }
 
     @GetMapping("/deleteFilm")
-    public String removeFilm(@ModelAttribute Long filmId) {
+    public String removeFilm(@RequestParam(name="filmId", required=true) Long filmId) {
         Film filmById = service.getFilmById(filmId);
         service.deleteFilm(filmById);
-        return "home";
+        return "redirect:/home";
     }
 }

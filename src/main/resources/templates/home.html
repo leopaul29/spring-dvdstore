@@ -9,9 +9,8 @@
 <h2>Current films</h2>
 <a th:href="@{/addFilm}">addFilm</a>
 <a th:href="@{/deleteFilm}">deleteFilm</a>
-<tr th:if="${films.empty}">
-    <td colspan="2"> No Films Available </td>
-</tr>
+<div th:if="${films.empty}">No Films Available</div>
+<div th:if="${!films.empty}">
 <table>
     <thead>
         <td>Id</td>
@@ -27,5 +26,6 @@
         </tr>
     </tbody>
 </table>
+</div>
 </body>
 </html>
