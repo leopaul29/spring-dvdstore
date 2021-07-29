@@ -17,8 +17,13 @@ public class Film {
     public Film(){}
 
     public Film(String titre, String genre){
+        this(titre, genre, 0);
+    }
+
+    public Film(String titre, String genre, int nbExemplaires){
         this.titre=titre;
         this.genre=genre;
+        this.nbExemplaires = nbExemplaires;
     }
 
     @Override

@@ -8,7 +8,6 @@
 <h1>DVD Store</h1>
 <h2>Current films</h2>
 <a th:href="@{/addFilm}">addFilm</a>
-<a th:href="@{/deleteFilm}">deleteFilm</a>
 <div th:if="${films.empty}">No Films Available</div>
 <div th:if="${!films.empty}">
 <table>
@@ -16,12 +15,17 @@
         <td>Id</td>
         <td>Titre</td>
         <td>Genre</td>
+        <td>nbExemplaires</td>
+        <td>Borrow</td>
+        <td>Delete</td>
     </thead>
     <tbody>
         <tr th:each="film : ${films}">
             <td><span th:text="${film.id}"> Id </span></td>
             <td><span th:text="${film.titre}"> Titre </span></td>
             <td><span th:text="${film.genre}"> Genre </span></td>
+            <td><span th:text="${film.nbExemplaires}"> nbExemplaires </span></td>
+            <td><span><a th:href="@{/borrowFilm(filmId=${film.id})}"> V </a></span></td>
             <td><span><a th:href="@{/deleteFilm(filmId=${film.id})}"> X </a></span></td>
         </tr>
     </tbody>

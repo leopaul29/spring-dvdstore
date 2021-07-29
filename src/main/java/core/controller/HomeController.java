@@ -38,6 +38,12 @@ public class HomeController {
         return "redirect:/home/";
     }
 
+    @GetMapping("/borrowFilm")
+    public String borrowFilm(@RequestParam(name="filmId", required=true) Long filmId) {
+        service.borrowFilm(filmId);
+        return "redirect:/home";
+    }
+
     @GetMapping("/deleteFilm")
     public String removeFilm(@RequestParam(name="filmId", required=true) Long filmId) {
         Film filmById = service.getFilmById(filmId);

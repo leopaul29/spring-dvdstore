@@ -21,11 +21,11 @@ public class App2 {
     public CommandLineRunner demo(FilmRepository repository) {
         return (args) -> {
             // save a few customers
-            repository.save(new Film("Jack", "Bauer"));
-            repository.save(new Film("Chloe", "O'Brian"));
-            repository.save(new Film("Kim", "Bauer"));
-            repository.save(new Film("David", "Palmer"));
-            repository.save(new Film("Michelle", "Dessler"));
+            repository.save(new Film("Jack", "Bauer", 100));
+            repository.save(new Film("Chloe", "O'Brian", 45));
+            repository.save(new Film("Kim", "Bauer", 8));
+            repository.save(new Film("David", "Palmer", 61));
+            repository.save(new Film("Michelle", "Dessler", 123));
 
             // fetch all customers
             log.info("Customers found with findAll():");
