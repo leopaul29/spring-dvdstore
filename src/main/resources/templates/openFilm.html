@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Add Film</title>
+</head>
+<body>
+<h1>Add Film</h1>
+<form th:action="@{/addFilm}" method="post" th:object="${film}">
+Titre:<input type="text" name="Titre" id="Titre" th:field="*{titre}">
+Genre:<input type="text" name="genre" id="genre" th:field="*{genre}">
+<input type="submit" value="Ajouter un film">
+</form>
+</body>
+</html>

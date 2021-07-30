@@ -22,6 +22,12 @@ public class HomeController {
         model.addAttribute("films", films);
         return "home";
     }
+    @GetMapping("/openFilm")
+    public String openFilm(@RequestParam(name="filmId", required=true) Long filmId, Model model) {
+        Film film = service.getFilmById(filmId);
+        model.addAttribute("film", film);
+        return "openFilm";
+    }
 
     @GetMapping("/addFilm")
     public String addFilm(Model model) {
