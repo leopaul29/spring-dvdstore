@@ -7,5 +7,7 @@ import java.util.List;
 @Service
 public interface FilmServiceInterface {
     public void registerFilm(Film film);
+    public Film getFilmById(Long id);
     public List<Film> listFilm();
+    public List<Film> listFilmBorrowable();
 }

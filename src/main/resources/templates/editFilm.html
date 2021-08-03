@@ -9,8 +9,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Add Film</h1>
-<form th:action="@{/addFilm}" method="post" th:object="${film}" class="form-horizontal">
+<h1>Edit Film</h1>
+<form th:action="@{/editFilm}" method="post" th:object="${film}" class="form-horizontal">
+    <input type="hidden" name="id" id="id" th:field="*{id}"/>
     <div class="form-group">
         <div class="col-3 col-sm-12">
             <label class="form-label" for="title">Title</label>
@@ -43,7 +44,7 @@
             <textarea type="text" name="desc" id="desc" th:field="*{description}" class="form-input" placeholder="desc" rows="3"></textarea>
         </div>
     </div>
-<input type="submit" value="Add film">
+<input type="submit" value="Edit film">
 </form>
 </body>
 </html>

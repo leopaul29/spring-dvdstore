@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:a="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Error</title>
+    <title>DVD Store - Error</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/spectre.css}">
+    <link rel="stylesheet" th:href="@{/css/spectre-exp.css}">
+    <link rel="stylesheet" th:href="@{/css/spectre-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-Error !
+<main class="container">
+    <div class="hero bg-gray ">
+        <div class="hero-body">
+            <h1>Error !</h1>
+            <a th:href="@{/addFilm}" class="btn"><i class="icon icon-back"></i>Home</a>
+        </div>
+    </div>
+</main>
 </body>
 </html>

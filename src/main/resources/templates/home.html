@@ -1,35 +1,61 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:a="http://www.w3.org/1999/html">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>DVD Store - Home page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/spectre.css}">
+    <link rel="stylesheet" th:href="@{/css/spectre-exp.css}">
+    <link rel="stylesheet" th:href="@{/css/spectre-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>DVD Store</h1>
-<h2>Current films</h2>
-<a th:href="@{/addFilm}">addFilm</a>
-<div th:if="${films.empty}">No Films Available</div>
-<div th:if="${!films.empty}">
-<table>
+<main class="container">
+<div class="hero bg-gray ">
+    <div class="hero-body">
+        <h1>DVD Store</h1>
+        <p>Rent all movie you want !</p>
+    </div>
+</div>
+<th:block th:if="${films.empty}">
+    <div class="empty">
+        <div class="empty-icon">
+            <i class="icon icon-people"></i>
+        </div>
+        <p class="empty-title h5">No Films Available</p>
+        <p class="empty-subtitle">Click the button to add a film.</p>
+        <div class="empty-action">
+            <a th:href="@{/addFilm}" class="btn btn-primary"><i class="icon icon-plus"></i>Add film</a>
+        </div>
+    </div>
+
+    </th:block>
+
+<th:block th:if="${!films.empty}">
+    <a th:href="@{/addFilm}" class="btn btn-primary"><i class="icon icon-plus"></i>
+        Add film</a>
+<table class="table table-hover">
     <thead>
-        <td>Id</td>
-        <td>Titre</td>
-        <td>Genre</td>
-        <td>nbExemplaires</td>
-        <td>Borrow</td>
-        <!--td>Delete</td-->
+        <th>Id</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Copies</th>
+        <th>Borrow</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </thead>
     <tbody>
         <tr th:each="film : ${films}">
             <td><span> <a th:href="@{/openFilm(filmId=${film.id})}" th:text="${film.Id}"> Id </a> </span></td>
             <td><span th:text="${film.titre}"> Titre </span></td>
-            <td><span th:text="${film.genre}"> Genre </span></td>
+            <td><span th:text="${film.genre}" class="label label-rounded"> Genre </span></td>
             <td><span th:text="${film.nbExemplaires}"> nbExemplaires </span></td>
-            <td><span><a th:href="@{/borrowFilm(filmId=${film.id})}"> Borrow </a></span></td>
-            <!--td><span><a th:href="@{/deleteFilm(filmId=${film.id})}"> X </a></span></td-->
+            <td><span><a th:href="@{/borrowFilm(filmId=${film.id})}"><i class="icon icon-time"></i></a></span></td>
+            <td><span><a th:href="@{/editFilm(filmId=${film.id})}"><i class="icon icon-edit"></i></a></span></td>
+            <td><span><a th:href="@{/deleteFilm(filmId=${film.id})}"><i class="icon icon-delete"></i></a></span></td>
         </tr>
     </tbody>
 </table>
-</div>
+</th:block>
+</main>
 </body>
 </html>

@@ -12,17 +12,15 @@ public class Film {
     private Long id;
     private String titre;
     private String genre;
+    private String description;
     private int nbExemplaires;
 
     public Film(){}
 
-    public Film(String titre, String genre){
-        this(titre, genre, 0);
-    }
-
-    public Film(String titre, String genre, int nbExemplaires){
+    public Film(String titre, String genre, String description, int nbExemplaires){
         this.titre=titre;
         this.genre=genre;
+        this.description = description;
         this.nbExemplaires = nbExemplaires;
     }
 
@@ -32,6 +30,7 @@ public class Film {
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", genre='" + genre + '\'' +
+                ", description='" + description + '\'' +
                 ", nbExemplaires=" + nbExemplaires +
                 '}';
     }
@@ -59,6 +58,10 @@ public class Film {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
+    public String getDescription() {        return description;    }
+
+    public void setDescription(String description) {        this.description = description;    }
 
     public int getNbExemplaires() {
         return nbExemplaires;

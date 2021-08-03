@@ -1,9 +1,14 @@
 package core.controller;
 
+import core.DVDStoreApp;
 import core.entity.Film;
 import core.service.FilmService;
 import core.service.FilmServiceInterface;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +17,14 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
     @Autowired
     FilmService service;
 
-    @GetMapping("/home")
+    @GetMapping(path = {"/", "/home"})
     public String home(Model model) {
-        List<Film> films = service.listFilm();
+        List<Film> films = service.listFilmBorrowable();
         model.addAttribute("films", films);
         return "home";
     }
@@ -38,8 +44,20 @@ public class HomeController {
 
     @PostMapping("/addFilm")
     public String postAddFilm(@ModelAttribute Film film) {
-        //Film film = (Film) model.getAttribute("film");
         System.out.println("postAddFilm: "+film);
+        service.registerFilm(film);
+        return "redirect:/home/";
+    }
+
+    @GetMapping("/editFilm")
+    public String editFilm(@RequestParam(name="filmId", required=true) Long filmId, Model model) {
+        Film film = service.getFilmById(filmId);
+        model.addAttribute("film", film);
+        return "editFilm";
+    }
+
+    @PostMapping("/editFilm")
+    public String postEditFilm(@ModelAttribute Film film) {
         service.registerFilm(film);
         return "redirect:/home/";
     }
