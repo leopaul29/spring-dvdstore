@@ -9,6 +9,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:insert="fragments/navbar :: navbar"></div>
+
+<main class="container">
 <th:bloc th:object="${film}">
     <div class="film">
         <h1 th:text="${film.titre}">titre</h1>
@@ -16,5 +19,6 @@
         <p th:text="${film.description}"> Description </p>
     </div>
 </th:bloc>
+</main>
 </body>
 </html>

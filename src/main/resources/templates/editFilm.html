@@ -9,6 +9,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:insert="fragments/navbar :: navbar"></div>
+
+<main class="container">
 <h1>Edit Film</h1>
 <form th:action="@{/editFilm}" method="post" th:object="${film}" class="form-horizontal">
     <input type="hidden" name="id" id="id" th:field="*{id}"/>
@@ -46,5 +49,6 @@
     </div>
 <input type="submit" value="Edit film">
 </form>
+</main>
 </body>
 </html>

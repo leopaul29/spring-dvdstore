@@ -22,12 +22,15 @@ public class HomeController {
     @Autowired
     FilmService service;
 
+    // home
     @GetMapping(path = {"/", "/home"})
     public String home(Model model) {
         List<Film> films = service.listFilmBorrowable();
         model.addAttribute("films", films);
         return "home";
     }
+
+    // openFilm
     @GetMapping("/openFilm")
     public String openFilm(@RequestParam(name="filmId", required=true) Long filmId, Model model) {
         Film film = service.getFilmById(filmId);
@@ -35,6 +38,7 @@ public class HomeController {
         return "openFilm";
     }
 
+    // addFilm
     @GetMapping("/addFilm")
     public String addFilm(Model model) {
         Film film = new Film();
@@ -49,6 +53,7 @@ public class HomeController {
         return "redirect:/home/";
     }
 
+    // editFilm
     @GetMapping("/editFilm")
     public String editFilm(@RequestParam(name="filmId", required=true) Long filmId, Model model) {
         Film film = service.getFilmById(filmId);
@@ -62,12 +67,14 @@ public class HomeController {
         return "redirect:/home/";
     }
 
+    // borrowFilm
     @GetMapping("/borrowFilm")
     public String borrowFilm(@RequestParam(name="filmId", required=true) Long filmId) {
         service.borrowFilm(filmId);
         return "redirect:/home";
     }
 
+    // deleteFilm
     @GetMapping("/deleteFilm")
     public String removeFilm(@RequestParam(name="filmId", required=true) Long filmId) {
         Film filmById = service.getFilmById(filmId);
