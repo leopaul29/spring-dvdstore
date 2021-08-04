@@ -11,7 +11,7 @@
 <body>
 <th:bloc th:object="${film}">
     <div class="film">
-        <h1 th:value="${film.titre}">titre</h1>
+        <h1 th:text="${film.titre}">titre</h1>
         <span th:text="${film.genre}" class="label label-rounded"> Genre </span>
         <p th:text="${film.description}"> Description </p>
     </div>
